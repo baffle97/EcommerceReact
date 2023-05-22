@@ -4,6 +4,8 @@ import {
   } from "react-router-dom";
 import { Login } from './components/login/login';
 import Home from "./components/home/Home";
+import {AuthGuard} from "./authGuard"
+import {checkValidRoute} from './services/helper'
 
 const router = createBrowserRouter([
     {
@@ -11,8 +13,10 @@ const router = createBrowserRouter([
       element: <Login/>,
     },
     {
-      path: "home",
-      element:<Home/> ,
+      path: "home/*",
+      element:(<AuthGuard
+      isAuthenticated={checkValidRoute}
+      ><Home/></AuthGuard>)
     },
   ]);
 
