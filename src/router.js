@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     {
       path: "home/*",
       element:(<AuthGuard
-      isAuthenticated={checkValidRoute}
+      isAuthenticated={()=>checkValidRoute()}
       ><Home/></AuthGuard>)
     },
   ]);

@@ -25,11 +25,9 @@ export const Login = () => {
       password: password,
     };
     setIsLoading(true);
-    console.log(isLoading,"ffffff")
     verify(payload?.username, payload?.password).then((isValid) => {
       setIsLoading(false);
       if (isValid) {
-        console.log(isLoading)
         localStorage.setItem("loggedIn", true);
         navigate("/home", {
           state: { username: payload.username },
@@ -37,7 +35,6 @@ export const Login = () => {
         });
       } else {
         console.log("Username and password are invalid.");
-        console.log(isLoading,"xxxxxx")
       }
     });
   };
